@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption Confirmation - Paws from Above</title>
+  <link rel="stylesheet" href="adoptionconfirmation.css">
+</head>
+<body>
+  <div class="confirmation-container">
+    <div class="pet-preview">
+      <h2>Confirm Your Adoption</h2>
+      <div class="pet-image-container">
+        <img id="petImage" src="" alt="Pet Image" class="pet-image">
+      </div>
+      <div class="pet-info">
+        <p><strong>Name:</strong> <span id="petName"></span></p>
+        <p><strong>Status:</strong> <span id="petStatus">Pending</span></p>
+      </div>
+    </div>
+
+    <form id="adoptionForm" method="post" action="submit_adoption.php">
+      <input type="hidden" name="name" id="hiddenName">
+      <input type="hidden" name="image" id="hiddenImage">
+
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Home Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Confirmation</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name");
+      const image = params.get("image");
+      const status = params.get("status") || "Pending";
+
+      if (name && image) {
+        document.getElementById("petName").textContent = name;
+        document.getElementById("petImage").src = image;
+        document.getElementById("petImage").alt = name;
+        document.getElementById("petStatus").textContent = status;
+        
+        document.getElementById("hiddenName").value = name;
+        document.getElementById("hiddenImage").value = image;
+      } else {
+        document.querySelector(".pet-preview").innerHTML = `
+          <h2 style="color:#f44336">Error: Missing Pet Information</h2>
+          <p>Please select a pet from our gallery first.</p>
+          <a href="ADOPTABLEPETS.html" class="back-btn">Back to Gallery</a>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

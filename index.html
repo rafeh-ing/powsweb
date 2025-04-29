@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws from Above - Animal Rescue</title>
+    <link rel="stylesheet" href="STYLES.css">
+</head>
+
+<body>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Giving Every Animal a Second Chance at Life.</h1>
+            <p>Paws from Above is dedicated to providing a safe haven for abandoned and neglected animals, ensuring they find loving forever homes.</p>
+            <div class="stats">
+                <p>Thanks to Paws from Above, <span class="highlight">100+</span> animals find their forever home daily.</p>
+            </div>
+            
+            <div class="stats-image-container">
+                <img src="1.jpg" alt="Happy adopted animals" class="stats-image">
+            </div>
+
+            
+            <a href="gal.html" class="btn">Who Are We</a>
+
+            <a href="ADOPTABLEPETS.html" class="btn">Meet Our Pets</a>
+        </div>
+    </header>
+
+    <section id="action" class="cta-section">
+        <div class="cta-content">
+            <h2>Take Action</h2>
+            <h3 id="cta-blink">ADOPT, DON'T SHOP!</h3>
+            
+            <div class="adopt-image-container">
+                <img src="p1.webp" alt="Adoption promotion" class="adopt-image">
+            </div>
+            
+            <p>"Give the gift of hope to animals in need."</p>
+            
+            <div class="action-buttons">
+                <a href="ADOPT.html" class="btn btn-adopt">Adopt Now</a>
+                <a href="DONATE.html" class="btn btn-donate">Donate</a>
+                <a href="VOLUNTEER.html" class="btn btn-volunteer">Volunteer</a>
+            </div>
+            
+            <div class="visit-us">
+                <h3>VISIT US Today!</h3>
+                <p>Sidi Thabet</p>
+                
+                <div class="location-image-container">
+                    <img src="3.png" alt="Sidi Thabet location photo" class="location-image">
+                </div>
+                
+                <p>We're located in the heart of Sidi Thabet, Tunisia. Come see our facility, meet our animals, and learn how you can help!</p>
+                <a href="JOURNEY.html" class="btn">Start Your Journey</a>
+                <a href="direction.html" class="btn">Get Directions</a>
+                <a href="CONTACT.html" class="btn-outline">CONTACT US</a>
+                <a href="SUCCESS STORIES.html" class="btn">Success Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Effet clignotant sur le texte "ADOPT, DON'T SHOP!"
+        setInterval(() => {
+            const cta = document.getElementById('cta-blink');
+            cta.style.visibility = (cta.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        }, 800);
+
+        // Scroll doux vers la section .visit-us quand on clique sur "GET DIRECTIONS"
+        document.getElementById('scrollToVisit').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelector('.visit-us').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Message de remerciement lors du clic sur "Donate"
+        const donateBtn = document.querySelector('.btn-donate');
+        if (donateBtn) {
+            donateBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert("Merci pour votre générosité ❤️ ! Chaque don aide à sauver une vie 🐾");
+                window.location.href = this.getAttribute('href'); 
+            });
+        }
+    </script>
+
+</body>
+</html>

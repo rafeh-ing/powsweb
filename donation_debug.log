@@ -1,0 +1,148 @@
+2025-04-25 22:47:17
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 100
+    [message] => 
+    [payment] => credit_card
+)
+
+
+2025-04-25 22:47:30
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 100
+    [message] => esrdtfugyihuoji
+    [payment] => paypal
+)
+
+
+2025-04-25 22:58:48
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => dxfchgvjhbkjnlk,
+    [payment] => bank_transfer
+)
+
+
+2025-04-25 22:59:02
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => dxfchgvjhbkjnlk,
+    [payment] => bank_transfer
+)
+
+
+2025-04-25 22:59:12
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => dxfchgvjhbkjnlk,
+    [payment] => bank_transfer
+)
+
+
+2025-04-25 23:03:53
+Array
+(
+    [donation_type] => monthly
+    [is_recurring] => 1
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 10
+    [message] => guhioiouytdfv
+    [payment] => credit_card
+)
+
+
+2025-04-25 23:03:59
+Array
+(
+    [donation_type] => monthly
+    [is_recurring] => 1
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 10
+    [message] => guhioiouytdfv
+    [payment] => credit_card
+)
+
+
+2025-04-25 23:49:52
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => ^ùpomliukjyhtg
+    [payment_method] => credit_card
+)
+
+
+2025-04-26 00:03:35
+Array
+(
+    [donation_type] => one-time
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => $^pomlikuyjt
+    [payment_method] => credit_card
+)
+
+
+2025-04-26 00:04:04
+Array
+(
+    [donation_type] => monthly
+    [is_recurring] => 1
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [amount] => 250
+    [message] => poiuytr
+    [payment_method] => credit_card
+)
+
+
+2025-04-26 00:04:40
+Array
+(
+    [donation_type] => sponsor
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [animal_id] => 3
+    [amount] => 100
+    [message] => ùmlokiujyhtgrfde
+    [payment_method] => credit_card
+)
+
+
+2025-04-26 18:10:57
+Array
+(
+    [donation_type] => sponsor
+    [donor_name] => rafeh
+    [donor_email] => ayarirafeh@gmail.com
+    [animal_id] => 2
+    [amount] => 100
+    [message] => mol
+    [payment_method] => credit_card
+)
+

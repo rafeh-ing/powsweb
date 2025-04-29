@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('v.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent background to improve readability */
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 50px;
+      color: #d07fa5;
+      animation: fadeDown 2s ease forwards;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    .gallery-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+      perspective: 1000px;
+    }
+
+    .gallery-row img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      opacity: 0;
+      animation: zoomIn 1s ease forwards;
+      transform: scale(0.8) rotateY(20deg);
+    }
+
+    .gallery-row img:hover {
+      transform: scale(1.05) rotateY(0deg);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      0% { opacity: 0; transform: scale(0.8) rotateY(20deg); }
+      100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+    }
+
+    /* Scroll animations */
+    .hidden {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to Home Button */
+    .back-home-btn {
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #d07fa5;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+      background-color: #b0668e;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>This is for every soul that ever needed a second chance — and for the love that never dies.</h1>
+
+    <p class="hidden">There are moments in life that mark us forever.  
+      For me, it all began with a small soul covered in soft fur — my cat, my best friend, my everything.  
+      From the very first day, we built a bond that words could never fully capture. Animals have always held a special place in my heart, but this connection was something beyond love — it was pure, unconditional, healing.</p>
+
+    <div class="gallery-row">
+      <img src="a.jpg" alt="Image A">
+      <img src="b.jpg" alt="Image B">
+      <img src="c.jpg" alt="Image C">
+      <img src="d.jpg" alt="Image D">
+      <img src="e.jpg" alt="Image E">
+    </div>
+
+    <p class="hidden">We grew together, through laughter and silence, through bright days and darker ones.  
+      My cat was always there, a silent guardian, a source of light. Until five years ago, when the unimaginable happened.  
+      A tragic accident took my best friend away from me. In a single instant, my heart shattered into pieces too small to ever find again.</p>
+
+    <div class="gallery-row">
+      <img src="f.jpg" alt="Image F">
+      <img src="g.jpg" alt="Image G">
+      <img src="h.jpg" alt="Image H">
+      <img src="i.jpg" alt="Image I">
+      <img src="j.jpg" alt="Image J">
+    </div>
+
+    <p class="hidden">That pain changed me. It deepened my love, my respect, and my mission.  
+      It made me realize how fragile their lives are, and how much they depend on us.  
+      Since that day, a fire burns within me — a promise to protect every innocent life in need, to become the voice for those who can't speak, and to offer a safe place for those who are often forgotten.</p>
+
+    <div class="gallery-row">
+      <img src="k.jpg" alt="Image K">
+      <img src="l.jpg" alt="Image L">
+      <img src="m.jpg" alt="Image M">
+      <img src="n.jpg" alt="Image N">
+      <img src="o.jpg" alt="Image O">
+    </div>
+
+    <p class="hidden">This dream has grown with me.  
+      I've always longed to create a true sanctuary — a home for every soul in distress, a second chance for animals who deserve nothing less than love and dignity.  
+      And today, this website is my very first step toward that dream.  
+      It's not just a project — it's a piece of my heart, a piece of the love I lost but continue to carry every day.</p>
+
+    <div class="gallery-row">
+      <img src="p.jpg" alt="Image P">
+      <img src="q.jpg" alt="Image Q">
+      <img src="r.jpg" alt="Image R">
+      <img src="s.jpg" alt="Image S">
+      <img src="t.jpg" alt="Image T">
+    </div>
+
+    <p class="hidden">✨</p>
+
+    <p class="hidden">I believe with all my heart that kindness is the only legacy worth leaving behind.  
+      I invite you, from the deepest part of my soul, to always be there — not only for animals but for everyone and everything in need.  
+      Be the helping hand, the safe harbor, the warm smile.  
+      In a world that can sometimes be so heavy, your smallest act of kindness could be someone's greatest miracle.  
+      Let's build a world where love is louder than cruelty, where compassion is stronger than indifference.  
+      Together, we can heal, protect, and save — one heart at a time. 🐾❤️</p>
+
+    <div class="gallery-row">
+      <img src="u.jpg" alt="Image U">
+      <img src="v.jpg" alt="Image V">
+      <img src="a.jpg" alt="Image A Again">
+      <img src="b.jpg" alt="Image B Again">
+      <img src="c.jpg" alt="Image C Again">
+    </div>
+
+    <a href="index.html" class="back-home-btn">Back to Home</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

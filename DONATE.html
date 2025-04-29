@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Paws from Above</title>
+    <link rel="stylesheet" href="DONATE.css">
+    <style>
+        .form-group {
+            margin: 15px 0;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #2196F3;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header class="donation-header">
+        <div class="donation-header-content">
+            <h1>Support Our Mission</h1>
+            <p>Your donation helps us provide food, shelter, and medical care to animals in need.</p>
+        </div>
+    </header>
+
+    <div class="donation-container">
+        <h2>Choose Your Donation Method</h2>
+        <p>Every contribution makes a difference in an animal's life.</p>
+        
+        <div class="donation-options">
+            <!-- One-Time Donation -->
+            <div class="donation-card">
+                <h3>One-Time Gift</h3>
+                <p>Make a single donation to support our immediate needs.</p>
+                
+                <form id="one-time-form" class="donation-form" action="donate.php" method="POST">
+                    <input type="hidden" name="donation_type" value="one-time">
+                    
+                    <div class="form-group">
+                        <label for="name-one">Your Name</label>
+                        <input type="text" id="name-one" name="donor_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-one">Email</label>
+                        <input type="email" id="email-one" name="donor_email" required>
+                    </div>
+                    
+                    <div class="donation-amounts">
+                        <button type="button" class="amount-btn" data-amount="25">25DT</button>
+                        <button type="button" class="amount-btn" data-amount="50">50DT</button>
+                        <button type="button" class="amount-btn" data-amount="100">100DT</button>
+                        <button type="button" class="amount-btn" data-amount="250">250DT</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount-one">Amount (DT)</label>
+                        <input type="number" id="amount-one" name="amount" min="1" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message-one">Message (Optional)</label>
+                        <textarea id="message-one" name="message"></textarea>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h4>Payment Method</h4>
+                        <div class="method-option">
+                            <input type="radio" id="credit-card-one" name="payment_method" value="credit_card" checked>
+                            <label for="credit-card-one">Credit/Debit Card</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="radio" id="paypal-one" name="payment_method" value="paypal">
+                            <label for="paypal-one">PayPal</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="radio" id="bank-transfer-one" name="payment_method" value="bank_transfer">
+                            <label for="bank-transfer-one">Bank Transfer</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Donate Now</button>
+                </form>
+            </div>
+            
+            <!-- Monthly Donation -->
+            <div class="donation-card">
+                <h3>Monthly Support</h3>
+                <p>Become a sustaining donor with automatic monthly gifts.</p>
+                
+                <form id="monthly-form" class="donation-form" action="donate.php" method="POST">
+                    <input type="hidden" name="donation_type" value="monthly">
+                    <input type="hidden" name="is_recurring" value="1">
+                    
+                    <div class="form-group">
+                        <label for="name-monthly">Your Name</label>
+                        <input type="text" id="name-monthly" name="donor_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-monthly">Email</label>
+                        <input type="email" id="email-monthly" name="donor_email" required>
+                    </div>
+                    
+                    <div class="donation-amounts">
+                        <button type="button" class="amount-btn" data-amount="100">100DT</button>
+                        <button type="button" class="amount-btn" data-amount="250">250DT</button>
+                        <button type="button" class="amount-btn" data-amount="500">500DT</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount-monthly">Monthly Amount (DT)</label>
+                        <input type="number" id="amount-monthly" name="amount" min="1" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message-monthly">Message (Optional)</label>
+                        <textarea id="message-monthly" name="message"></textarea>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h4>Payment Method</h4>
+                        <div class="method-option">
+                            <input type="radio" id="credit-card-monthly" name="payment_method" value="credit_card" checked>
+                            <label for="credit-card-monthly">Credit/Debit Card</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="radio" id="paypal-monthly" name="payment_method" value="paypal">
+                            <label for="paypal-monthly">PayPal</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Start Monthly Giving</button>
+                </form>
+            </div>
+            
+            <!-- Sponsor an Animal -->
+            <div class="donation-card">
+                <h3>Sponsor an Animal</h3>
+                <p>Provide ongoing care for a specific animal in our shelter.</p>
+                
+                <form id="sponsor-form" class="donation-form" action="donate.php" method="POST">
+                    <input type="hidden" name="donation_type" value="sponsor">
+                    
+                    <div class="form-group">
+                        <label for="name-sponsor">Your Name</label>
+                        <input type="text" id="name-sponsor" name="donor_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-sponsor">Email</label>
+                        <input type="email" id="email-sponsor" name="donor_email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="animal-select">Select Animal to Sponsor</label>
+                        <select id="animal-select" name="animal_id" required>
+                            <option value="">-- Select an animal --</option>
+                            <option value="1">REX (Dog)</option>
+                            <option value="2">DA3MI (Cat)</option>
+                            <option value="3">SIMBA (Cat)</option>
+                            <option value="4">TOM (Cat)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount-sponsor">Monthly Sponsorship Amount (DT)</label>
+                        <input type="number" id="amount-sponsor" name="amount" min="10" step="0.01" value="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message-sponsor">Message to the Animal (Optional)</label>
+                        <textarea id="message-sponsor" name="message"></textarea>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h4>Payment Method</h4>
+                        <div class="method-option">
+                            <input type="radio" id="credit-card-sponsor" name="payment_method" value="credit_card" checked>
+                            <label for="credit-card-sponsor">Credit/Debit Card</label>
+                        </div>
+                        <div class="method-option">
+                            <input type="radio" id="paypal-sponsor" name="payment_method" value="paypal">
+                            <label for="paypal-sponsor">PayPal</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Become a Sponsor</button>
+                </form>
+                
+                <p style="margin-top: 15px;">Or <a href="ADOPTABLEPETS.html">meet all animals needing sponsors</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle amount buttons
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const form = this.closest('form');
+                    const amountInput = form.querySelector('input[name="amount"]');
+                    
+                    // Remove selected class from siblings
+                    form.querySelectorAll('.amount-btn').forEach(b => {
+                        b.classList.remove('selected');
+                    });
+                    
+                    // Add selected class and update value
+                    this.classList.add('selected');
+                    amountInput.value = this.getAttribute('data-amount');
+                });
+            });
+            
+            // Initialize default amounts
+            document.querySelectorAll('.donation-form').forEach(form => {
+                const amountInput = form.querySelector('input[name="amount"]');
+                if (!amountInput.value) {
+                    const firstAmountBtn = form.querySelector('.amount-btn');
+                    if (firstAmountBtn) {
+                        amountInput.value = firstAmountBtn.getAttribute('data-amount');
+                        firstAmountBtn.classList.add('selected');
+                    }
+                }
+            });
+            
+            // AJAX form submission
+            document.querySelectorAll('.donation-form').forEach(form => {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: new FormData(form)
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            window.location.href = `thank_you.html?id=${result.donation_id}`;
+                        } else {
+                            alert('Error: ' + result.message);
+                        }
+                    } catch (error) {
+                        alert('An error occurred. Please try again.');
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

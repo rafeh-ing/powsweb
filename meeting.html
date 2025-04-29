@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Your Pet - Paws from Above</title>
+  <link rel="stylesheet" href="ADOPT.css" />
+  <style>
+    .meeting-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .pet-display {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .pet-display img {
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    .adoption-form label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .adoption-form input, .adoption-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .adoption-form button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .adoption-form button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="meeting-container">
+    <div class="pet-display">
+      <h2 id="petName">Your Future Pet</h2>
+      <img id="petImage" src="" alt="Pet Image">
+    </div>
+
+    <form class="adoption-form" onsubmit="handleSubmit(event)">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="reason">Why do you want to adopt this pet?</label>
+      <textarea id="reason" name="reason" rows="4" required></textarea>
+
+      <button type="submit">Submit Adoption Request</button>
+    </form>
+  </div>
+
+  <script>
+    // Extract name and image from the URL
+    const params = new URLSearchParams(window.location.search);
+    const petName = params.get("name");
+    const petImage = params.get("image");
+
+    // Display the pet info
+    document.getElementById("petName").textContent = `Meet ${petName}`;
+    document.getElementById("petImage").src = petImage;
+    document.getElementById("petImage").alt = petName;
+
+    // Handle form submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      // You can store or process form data here if needed
+      window.location.href = "thanks.html";
+    }
+  </script>
+
+</body>
+</html>

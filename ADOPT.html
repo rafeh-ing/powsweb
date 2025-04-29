@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adopt a Pet - Paws from Above</title>
+  
+
+  
+  <link rel="stylesheet" href="ADOPT.css" />
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Lora', serif;
+    }
+
+    body {
+      background-color: #b4e1a1; 
+      color: #333;
+      font-size: 1.1em; 
+      line-height: 1.7;
+    }
+
+    
+    .adopt-header {
+      background-image: url('ADbg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 300px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .adopt-header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+      z-index: 0;
+    }
+
+    .adopt-header-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .adopt-header-content h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .adopt-header-content p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+  
+    .pet-filters {
+      background-color: #ffffff;
+      padding: 25px;
+      margin-top: -50px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pet-filters h2 {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .filter-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .filter-group label {
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.1em;
+    }
+
+
+    .pets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px;
+    }
+
+    .pet-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .pet-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .pet-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .pet-info {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .pet-info h3 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .pet-meta span {
+      display: inline-block;
+      background-color: #e3f2fd;
+      color: #1976d2;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      margin: 0 8px;
+    }
+
+    .pet-info p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .pet-info .btn {
+      padding: 12px 25px;
+      background-color: #2196F3;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+
+    .pet-info .btn:hover {
+      background-color: #0b7dda;
+    }
+
+    
+    footer {
+      background-color: #2196F3;
+      padding: 25px;
+      color: white;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1.2em;
+    }
+
+    
+    @media (max-width: 768px) {
+      .process-steps {
+        flex-direction: column;
+      }
+
+      .pet-filters .filter-row {
+        flex-direction: column;
+      }
+
+      .pet-card {
+        margin-bottom: 20px;
+      }
+
+      .pet-info .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  
+  <header class="adopt-header">
+    <div class="adopt-header-content">
+      <h1>Find Your Perfect Companion</h1>
+      <p>Each adoption saves two lives - the pet you adopt and the one who can now be rescued.</p>
+    </div>
+  </header>
+
+  
+  <section class="pet-filters">
+    <h2>Meet Our Pets</h2>
+    <div class="filter-row">
+      <div class="filter-group" style="flex: 1 1 100%;">
+        <label for="searchInput">Search by name:</label>
+        <input type="text" id="searchInput" placeholder="e.g. Bella, Rex..." />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pet Grid -->
+  <section class="pets-grid" id="petsGrid">
+    <!-- Pet Card 1 -->
+    <div class="pet-card" data-name="Rex">
+      <img src="adopt.webp" alt="Rex" class="pet-image">
+      <div class="pet-info">
+        <h3>Rex</h3>
+        <div class="pet-meta">
+          <span>Labrador Mix</span>
+          <span>2 years</span>
+        </div>
+        <p>Friendly and energetic, loves fetch and walks.</p>
+        <a href="meeting.html?name=Rex&image=adopt.webp" class="btn">Meet Rex</a>
+      </div>
+    </div>
+
+    <!-- Pet Card 2 -->
+    <div class="pet-card" data-name="Michou">
+      <img src="adopt2.webp" alt="Michou" class="pet-image">
+      <div class="pet-info">
+        <h3>Michou</h3>
+        <div class="pet-meta">
+          <span>Domestic Shorthair</span>
+          <span>5 years</span>
+        </div>
+        <p>Gentle and affectionate, enjoys quiet evenings.</p>
+        <a href="meeting.html?name=Michou&image=adopt2.webp" class="btn">Meet Michou</a>
+      </div>
+    </div>
+
+    <!-- Pet Card 3 -->
+    <div class="pet-card" data-name="Bella">
+      <img src="adopt3.jpg" alt="Bella" class="pet-image">
+      <div class="pet-info">
+        <h3>Bella</h3>
+        <div class="pet-meta">
+          <span>Beagle Mix</span>
+          <span>3 years</span>
+        </div>
+        <p>Sweet and curious, loves exploring scents.</p>
+        <a href="meeting.html?name=Bella&image=adopt3.jpg" class="btn">Meet Bella</a>
+      </div>
+    </div>
+
+    <!-- Pet Card 4 -->
+    <div class="pet-card" data-name="Layka">
+      <img src="adopt5.jpg" alt="Layka" class="pet-image">
+      <div class="pet-info">
+        <h3>Layka</h3>
+        <div class="pet-meta">
+          <span>Siamese Mix</span>
+          <span>1 year</span>
+        </div>
+        <p>Playful and vocal, will keep you entertained.</p>
+        <a href="meeting.html?name=Layka&image=adopt5.jpg" class="btn">Meet Layka</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+  </footer>
+
+  
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const petCards = document.querySelectorAll(".pet-card");
+
+    searchInput.addEventListener("input", function () {
+      const searchText = this.value.toLowerCase().trim();
+
+      petCards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(searchText) ? "flex" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

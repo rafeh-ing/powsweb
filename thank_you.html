@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Merci ! - PawsFromAbove</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+        .thank-you-box {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-box">
+        <h1>Merci pour votre générosité !</h1>
+        <p>Votre don a bien été enregistré sous le numéro <span id="donation-id">...</span></p>
+        <p>Un email de confirmation vous a été envoyé.</p>
+        <a href="index.html" class="btn">Retour à l'accueil</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('donation-id').textContent = urlParams.get('id') || 'N/A';
+    </script>
+</body>
+</html>

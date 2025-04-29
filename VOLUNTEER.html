@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer at Paws from Above</title>
+    
+    <link rel="stylesheet" href="VOLUNTEER.css">
+</head>
+<body>
+    <header class="volunteer-header">
+        <div class="volunteer-header-content">
+            <h1>Join Our Volunteer Team</h1>
+            <p>Your time and skills can make a world of difference for animals in need.</p>
+            <a href="#apply" class="btn">Apply Now</a>
+        </div>
+    </header>
+
+    <div class="volunteer-container">
+        <h2>Volunteer Opportunities</h2>
+        <p>We have various ways you can help, whether you have a few hours or want to make a regular commitment.</p>
+        
+        <div class="volunteer-opportunities">
+            <div class="opportunity-card">
+                
+                <h3>Animal Care</h3>
+                <p>Help with feeding, grooming, and socializing our animals.</p>
+                <p><strong>Commitment:</strong> 4+ hours/week</p>
+            </div>
+            
+            <div class="opportunity-card">
+                
+                <h3>Adoption Events</h3>
+                <p>Assist at weekend adoption events.</p>
+                <p><strong>Commitment:</strong> Weekends</p>
+            </div>
+            
+            <div class="opportunity-card">
+                <i class="fas fa-car"></i>
+                <h3>Transportation</h3>
+                <p>Transport animals to vet appointments.</p>
+                <p><strong>Requirements:</strong> Driver's license</p>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>"Volunteering here has been incredibly rewarding!"</p>
+            <p><strong>- Sarah, Volunteer since 2022</strong></p>
+        </div>
+
+        <div id="apply" class="volunteer-form">
+            <h2>Volunteer Application</h2>
+            <form id="volunteerForm" action="volunteer_submit.php" method="POST">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest">Area of Interest *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Select an option</option>
+                        <option value="animal_care">Animal Care</option>
+                        <option value="adoption_events">Adoption Events</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Availability *</label>
+                    <div class="availability">
+                        <label><input type="checkbox" name="weekday_mornings"> Weekday Mornings</label>
+                        <label><input type="checkbox" name="weekday_afternoons"> Weekday Afternoons</label>
+                        <label><input type="checkbox" name="weekends"> Weekends</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Experience (if any)</label>
+                    <textarea id="experience" name="experience"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="why">Why do you want to volunteer? *</label>
+                    <textarea id="why" name="why" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('volunteerForm');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate at least one availability
+            const availabilities = form.querySelectorAll('input[type="checkbox"]:checked');
+            if (availabilities.length === 0) {
+                alert('Please select at least one availability option');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    alert(result.message);
+                    form.reset();
+                    // Scroll to top to show success
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    alert('Error: ' + (result.message || 'Unknown error occurred'));
+                }
+            } catch (error) {
+                alert('Submission error. Please try again.');
+                console.error('Submission error:', error);
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

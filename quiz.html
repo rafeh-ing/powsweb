@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Perfect Match - Paws from Above</title>
+    <link rel="stylesheet" href="quiz.css"> 
+</head>
+<body>
+    <!-- Quiz Header -->
+    <header class="quiz-header">
+        <div class="quiz-header-content">
+            <h1>Find Your Perfect Pet Match</h1>
+            <p>Take our 5-minute quiz to discover which animals would be the best fit for your lifestyle!</p>
+        </div>
+    </header>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <div class="quiz-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question-container active" id="question1">
+            <div class="question-number">Question 1 of 5</div>
+            <h2>What size pet are you looking for?</h2>
+            <div class="options-container">
+                <div class="option" data-value="small">Small (under 20 lbs/9 kg)</div>
+                <div class="option" data-value="medium">Medium (20-50 lbs/9-23 kg)</div>
+                <div class="option" data-value="large">Large (over 50 lbs/23 kg)</div>
+                <div class="option" data-value="any">Any size is fine!</div>
+            </div>
+            <div class="quiz-navigation">
+                <button class="btn-outline" disabled>Previous</button>
+                <button class="btn next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-container" id="question2">
+            <div class="question-number">Question 2 of 5</div>
+            <h2>How much time can you dedicate to your pet daily?</h2>
+            <div class="options-container">
+                <div class="option" data-value="1">Less than 1 hour</div>
+                <div class="option" data-value="2">1-2 hours</div>
+                <div class="option" data-value="3">2-4 hours</div>
+                <div class="option" data-value="4">More than 4 hours</div>
+            </div>
+            <div class="quiz-navigation">
+                <button class="btn-outline prev-btn">Previous</button>
+                <button class="btn next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-container" id="question3">
+            <div class="question-number">Question 3 of 5</div>
+            <h2>What's your living situation?</h2>
+            <div class="options-container">
+                <div class="option" data-value="apartment">Apartment/Small space</div>
+                <div class="option" data-value="house">House with yard</div>
+                <div class="option" data-value="rural">Rural/Farm area</div>
+                <div class="option" data-value="varies">It varies</div>
+            </div>
+            <div class="quiz-navigation">
+                <button class="btn-outline prev-btn">Previous</button>
+                <button class="btn next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-container" id="question4">
+            <div class="question-number">Question 4 of 5</div>
+            <h2>What energy level are you looking for?</h2>
+            <div class="options-container">
+                <div class="option" data-value="low">Low (couch potato)</div>
+                <div class="option" data-value="medium">Medium (some activity)</div>
+                <div class="option" data-value="high">High (very active)</div>
+                <div class="option" data-value="any">Any energy level</div>
+            </div>
+            <div class="quiz-navigation">
+                <button class="btn-outline prev-btn">Previous</button>
+                <button class="btn next-btn">Next</button>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-container" id="question5">
+            <div class="question-number">Question 5 of 5</div>
+            <h2>What's most important to you in a pet?</h2>
+            <div class="options-container">
+                <div class="option" data-value="companionship">Companionship</div>
+                <div class="option" data-value="protection">Protection</div>
+                <div class="option" data-value="activity">Activity partner</div>
+                <div class="option" data-value="teaching">Teaching kids responsibility</div>
+            </div>
+            <div class="quiz-navigation">
+                <button class="btn-outline prev-btn">Previous</button>
+                <button class="btn" id="submit-btn">Get Results</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="result-container" id="resultContainer" style="display: none;">
+            <h2>Your Perfect Match Is...</h2>
+            <div id="resultContent">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <a href="adopt.html" class="btn">View Available Pets</a>
+            <a href="contact.html" class="btn-outline">Contact Us About Adoption</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize state
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const answers = {}; // Store the user's answers
+    
+        // Elements
+        const nextButtons = document.querySelectorAll('.next-btn');
+        const prevButtons = document.querySelectorAll('.prev-btn');
+        const resultContainer = document.getElementById('resultContainer');
+        const resultContent = document.getElementById('resultContent');
+        const progressBar = document.getElementById('progressBar');
+        const submitButton = document.getElementById('submit-btn');
+    
+        // Function to handle navigating to the next question
+        function goToNextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                document.getElementById(`question${currentQuestion}`).classList.remove('active');
+                currentQuestion++;
+                document.getElementById(`question${currentQuestion}`).classList.add('active');
+                updateProgress();
+            }
+        }
+    
+        // Function to handle navigating to the previous question
+        function goToPreviousQuestion() {
+            if (currentQuestion > 1) {
+                document.getElementById(`question${currentQuestion}`).classList.remove('active');
+                currentQuestion--;
+                document.getElementById(`question${currentQuestion}`).classList.add('active');
+                updateProgress();
+            }
+        }
+    
+        // Function to update the progress bar
+        function updateProgress() {
+            const progress = (currentQuestion - 1) / (totalQuestions - 1) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+    
+        // Function to handle when the user selects an option
+        function handleOptionSelection(event) {
+            const questionId = event.target.closest('.question-container').id;
+            const questionNumber = questionId.replace('question', '');
+            const value = event.target.getAttribute('data-value');
+    
+            // Store the answer for the current question
+            answers[questionNumber] = value;
+    
+            // Remove the 'selected' class from all options in the current question
+            const options = document.querySelectorAll(`#${questionId} .option`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+    
+            // Add the 'selected' class to the clicked option
+            event.target.classList.add('selected');
+    
+            // Enable the next button once an option is selected
+            const nextButton = document.querySelector(`#${questionId} .next-btn`);
+            nextButton.disabled = false;
+        }
+    
+        // Function to handle quiz submission
+        function handleSubmit() {
+            // Determine the result based on answers
+            const result = calculateResult();
+    
+            // Display result content
+            resultContent.innerHTML = `<h3>Your perfect pet is a ${result}</h3>`;
+            resultContainer.style.display = 'block';
+        }
+    
+        // Function to calculate the result based on answers
+        function calculateResult() {
+            let petType = '';
+    
+            
+            if (answers[1] === 'small' && answers[2] <= 2 && answers[3] === 'apartment') {
+                petType = 'Small Dog or Cat';
+            } else if (answers[1] === 'large' && answers[4] === 'protection') {
+                petType = 'Large Dog (e.g., Guard Dog)';
+            } else {
+                petType = 'Medium Dog or Cat';
+            }
+    
+            return petType;
+        }
+    
+        // Add event listeners to options
+        const options = document.querySelectorAll('.option');
+        options.forEach(option => {
+            option.addEventListener('click', handleOptionSelection);
+        });
+    
+        // Add event listeners for buttons
+        nextButtons.forEach(button => {
+            button.addEventListener('click', goToNextQuestion);
+        });
+    
+        prevButtons.forEach(button => {
+            button.addEventListener('click', goToPreviousQuestion);
+        });
+    
+        submitButton.addEventListener('click', handleSubmit);
+    
+        // Initial setup
+        document.getElementById('question1').classList.add('active');
+        updateProgress();
+    </script>
+    
+</body>
+</html>
+

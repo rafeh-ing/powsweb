@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Meet the Pet</title>
+    <link rel="stylesheet" href="meet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+
+    <header class="meet-header">
+        <h1>Meet Your New Best Friend!</h1>
+    </header>
+
+    <div class="pet-details">
+        <!-- Pet Image -->
+        <img src="" alt="Pet" id="petImage" class="pet-image">
+        
+        <!-- Pet Name -->
+        <h2 id="petName">Pet Name</h2>
+        
+        <!-- Pet Description -->
+        <p id="petDescription">Description of the pet goes here.</p>
+        
+        <!-- Adopt Now Button -->
+        <a href="" id="adoptBtn" class="btn">Adopt Now</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Paws from Above. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get URL parameters passed from the adoptable pets page
+        const urlParams = new URLSearchParams(window.location.search);
+        const petName = urlParams.get('name');
+        const petImage = urlParams.get('image');
+        const petBreed = urlParams.get('breed');
+        const petAge = urlParams.get('age');
+        const petDescription = urlParams.get('description');
+
+        // Check if URL parameters exist
+        if (petName && petImage && petDescription) {
+            // Update the page content with pet details
+            document.getElementById('petName').textContent = petName;
+            document.getElementById('petImage').src = petImage;
+            document.getElementById('petImage').alt = petName;
+            document.getElementById('petDescription').textContent = `${petBreed}, ${petAge}. ${petDescription}`;
+
+            // Modify the "Adopt Now" button URL to include pet details for confirmation page
+            const adoptBtn = document.getElementById('adoptBtn');
+            adoptBtn.href = `adoptionconfirmation.html?name=${petName}&image=${petImage}&breed=${petBreed}&age=${petAge}&description=${petDescription}`;
+        } else {
+            // If URL parameters are missing, show an error
+            alert('Pet details are missing. Please go back and select a pet to meet.');
+        }
+    </script>
+
+</body>
+</html>
